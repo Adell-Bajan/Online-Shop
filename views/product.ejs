@@ -1,0 +1,30 @@
+<%- include('parts/header') %>
+<%- include('parts/navbar') %>
+
+<div class="container">
+	<% if(!product) { %>
+	<div class="alert alert-danger">
+		There is no product matches this id
+	</div>
+	<% } else { %>
+	<div class="row">
+		<div class="col col-12 col-md-6" style="padding: 10px 12px 7px 15px;border: 1 dashed;border-radius: 9px;border-color: white;border: 2px solid;/* border: 151px; */border-color: #a7a2a2;margin-top: 26px;background-color: white;">
+			<img class="image-cart" src="/<%= product.image%>" style="margin-top: 26px;width: 640px;">
+			<form action="/cart" method="post">
+				<input type="number" name="amount" class="form-control">
+				<input type="submit" value="Add to cart" class="btn btn-success" style="margin-top: 10px;margin-left: 208px;">
+			</form>
+		</div>
+		<div>
+			<div class="description-cart col col-12 col-md-6" style="padding: 20px 20px 20px 20px;border: 1 dashed;border-radius: 9px;border-color: white;border: 2px solid;/* border: 151px; */border-color: #a7a2a2;margin-top: 26px;background-color: white;margin-left: 30px;width: 539px;">
+				<h3><b><center><%= product.name %></center></b></h3><hr style="
+    border: 1px solid black;">
+				<h5><b>Price : <%= product.price %> $</b></h5>
+				<p style="color: black;"><b><%= product.description %></b></p>
+			</div>	
+		</div>
+	</div>	
+	<% } %>
+</div>
+
+<%- include('parts/footer') %>

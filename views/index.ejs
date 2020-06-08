@@ -1,0 +1,49 @@
+<%- include('parts/header') %>
+<%- include('parts/navbar') %>
+<div class="backimg">
+	
+<div class="container">
+	<form action="/" method="GET" id="form-select">
+		<select name="category" class="form-control" style="width: 92%;float: left;">
+			<option value="all">All</option>
+			<option value="clothes">Clothes</option>
+			<option value="phones">Phones</option>
+			<option value="computers">Computers</option>
+		</select>
+		<input type="submit" class="btn btn-info" value="Filter" style="margin-left: 15px;">
+	</form>
+	<%- include ('./parts/messages') %>
+	<% if(products.length === 0) { %>
+	<div class="alert alert-danger">
+		There is no products
+	</div>
+	<% } else { %>
+	<div class="row">
+		<% for(let product of products) { %>
+			 <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+					<img src="<%= product.image%>" class="card-img-top" style="height: 310px;">
+					<div class="card-body">
+						<h5 class="card-title" style="margin-top: 20;font-size: 30px;">
+							<a href="/product/<%= product._id%>"><b><%= product.name%></b></a>
+							<p style="font-size: 20px;margin-left: 10px;margin-top: 5px;color: black;"><b>Price : <%= product.price %> $</b></p>
+						</h5>
+						<form action="/cart" method="post" class="add-to-cart-form">
+							<input type="number" name="amount" class="form-control" style="margin-top: 10px;">
+							<input type="hidden" name="name"  value="<%= product.name %>">
+							<input type="hidden" name="price"  value="<%= product.price %>">
+							<input type="hidden" name="productId"  value="<%= product._id %>">
+							<input type="hidden" name="redirectTO" value="/">
+							<input type="submit" value="Add to cart" class="btn btn-info" style="margin: 15px;margin-left: 95px;">
+						</form>
+					</div>
+				</div>
+			</div>
+		<% } %>
+	</div>	
+	<% } %>
+</div>
+
+</div>
+
+<%- include('parts/footer') %>

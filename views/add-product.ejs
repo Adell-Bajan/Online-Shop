@@ -1,0 +1,23 @@
+<%- include('parts/header') %>
+<%- include('parts/navbar') %>
+
+<div class="container text-center">
+	<div class="product1" style="border: solid;padding: -30px;background-color: #fff;margin-top: 40px;border-color: #989e98;">
+		<%- include ('./parts/messages') %>
+	<h3 style="margin-top: 50px;font-family: inherit;">Add Product</h3>
+	<form action="/admin/add" method="post" enctype="multipart/form-data">
+		<input type="text" name="name" class="form-control" placeholder="Name" style="width: 59%;margin-left: 209px; margin-bottom: 20px;">
+		<input type="number" name="price" class="form-control" placeholder="Price" style="width: 59%;margin-left: 209px; margin-bottom: 20px;">
+		<textarea type="number", class="form-control" name="description" placeholder="Description" style="width: 59%;margin-left: 209px; margin-bottom: 20px;"></textarea>
+		<select type="password" class="form-control" name="category" style="width: 59%;margin-left: 209px; margin-bottom: 20px;">
+			<option value="" selected>Choose a category</option>
+			<option value="clothes">clothes</option>
+			<option value="phones">Phones</option>
+			<option value="computers">Computers</option>
+		</select>
+		<input type="file" name="image" placeholder="Image" class="form-control" style="width: 59%;margin-left: 209px; margin-bottom: 20px;"/>
+		<input type="submit" value="Add Product" class="btn btn-info" />
+	</form>
+	</div>
+</div>
+<%- include('parts/footer') %>

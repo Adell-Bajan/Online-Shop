@@ -1,0 +1,47 @@
+<%- include('parts/header') %>
+<%- include('parts/navbar') %>
+		<link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+		<div class="main">
+		<section class="signup">
+		<div class="container">
+		<div class="signup-content">
+		<form method="POST" action="/login" class="signup-form">
+		<% if(authError) { %>
+		<p class="alert alert-danger">
+			<%= authError %>
+		</p>
+		<% } %>
+		<h2 class="form-title">Login</h2>
+		<div class="form-group">
+		<input type="email" class="form-input" name="email" id="email" placeholder="Your Email" />
+		</div>
+		<div class="form-group">
+		<input type="password" class="form-input" name="password" placeholder="Password" />
+		<span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+		</div>
+		<div class="form-group">
+		<input type="submit" class="form-submit" value="Login" />
+		</div>
+		</form>
+		<p class="loginhere">
+		Dont have account ? <a href="/signup" class="loginhere-link">Create Account</a>
+		</p>
+		</div>
+		</div>
+		</section>
+		</div>
+
+		<script src="vendor/jquery/jquery.min.js" type="ccad2536248882b062e59321-text/javascript"></script>
+		<script src="js/main.js" type="ccad2536248882b062e59321-text/javascript"></script>
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="ccad2536248882b062e59321-text/javascript"></script>
+		<script type="ccad2536248882b062e59321-text/javascript">
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-23581568-13');
+		</script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="ccad2536248882b062e59321-|49" defer=""></script>
+<%- include('parts/footer') %>
